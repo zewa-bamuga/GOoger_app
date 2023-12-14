@@ -1,7 +1,6 @@
 from typing import List
 
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect, Depends
-from pydantic import BaseModel
 from sqlalchemy import insert, select
 from sqlalchemy.ext.asyncio import AsyncSession
 

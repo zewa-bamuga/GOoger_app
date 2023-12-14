@@ -11,7 +11,7 @@ import sys
 sys.path.append(os.path.join(sys.path[0], 'src'))
 
 from config import DB_HOST, DB_PORT, DB_USER, DB_NAME, DB_PASS
-from auth.models import metadata as metadata_auth
+from backend.auth.models import metadata as metadata_auth
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
