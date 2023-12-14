@@ -1,0 +1,84 @@
+.header {
+  background-color: #fff;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  background: url('../../img/logoA.jpg') no-repeat;
+  width: 20%;
+  height: 64px;
+  margin-left: 150px;
+  background-size: contain;
+  background-position: center center;
+}
+
+.logoButton {
+  background: url('../../img/logoB.jpg') no-repeat;
+  width: 20%;
+  height: 64px;
+  margin-left: 150px;
+  margin-top: auto;
+  background-size: contain;
+  background-position: center center;
+  border: none;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+}
+
+.phone,
+.email {
+  margin-right: 100px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.phone {
+  margin-right: 30px;
+}
+.email {
+  margin-top: 5px;
+}
+
+.lvl,
+.acc {
+  margin-right: 150px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.lvl {
+  margin-right: 30px;
+}
+.lvl:hover{
+  color:#7eb5d0;
+}
+.acc{
+  font-family: 'Nobile', sans-serif;
+  color: black;
+}
+
+.logoBeforePhone {
+  width: 27px;
+  height: 27px;
+  margin-right: 10px;
+  vertical-align: -5px;
+}
+
+.logoBeforeEmail {
+  width: 27px;
+  height: 27px;
+  margin-right: 10px;
+  vertical-align: middle;
+}

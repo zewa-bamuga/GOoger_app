@@ -1,0 +1,188 @@
+.LCForm{
+  /* position:absolute; */
+  margin-top: 30px;
+  margin-left: 500px;
+  height:800px;
+  width:800px;
+  border-radius:7px/7px;
+  background-color:#ffffff;
+  box-shadow:1px 3px 5px #c8c8c8;
+}
+.LCTitle{
+  margin-left: 30px;
+  margin-right: auto;
+  margin-top:30px;
+  color: black;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Open Sans', sans-serif;
+  font-size:25px;
+}
+.LCButton{
+  /* position:absolute; */
+  margin-right: 750px;
+  margin-top: -55px;
+  padding:5px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ByMGButton{
+  position:absolute;
+  outline:none;
+  margin-top:15px;
+  margin-left:415px;
+  height:45px;
+  width:210px;
+  background-color:#ffffff;
+  border: 2px solid #7195a7;
+  border-radius:4px/4px;
+  color:#7ca9bf;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+  cursor:pointer;
+}
+.ByMGButton:hover{
+  color:#ffffff;
+  background-color:#7195a7;
+  transition:0.2s;
+  outline: none;
+}
+
+.ByCourceButton{
+  position:absolute;
+  outline:none;
+  margin-top:15px;
+  margin-left:630px;
+  height:45px;
+  width:120px;
+  background-color:#81a1b1;
+  border: 2px solid #81a1b1;
+  border-radius:4px/4px;
+  color:#ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+  cursor:pointer;
+}
+.ByCourceButton:hover{
+  color:#ffffff;
+  background-color:#7195a7;
+  transition:0.2s;
+  outline: none;
+}
+
+.Menu{
+  z-index: 1;
+  /* position:absolute; */
+  margin-left: -0px;
+  margin-top: -750px;
+}
+.MenuButton{
+  margin-top: -45px;
+}
+
+.MenuByMGButton{
+  padding-right: 5px;
+  cursor:pointer;
+  border:none;
+  position: absolute;
+  margin-left: 40px;
+  height:44px;
+  width:240px;
+  border-radius:4px/4px;
+  color: rgb(85, 85, 85);
+  background-color: #f1f1f1;
+  font-family: 'Open Sans', sans-serif;
+  font-weight:bold;
+  color:none;
+  font-size:17px;
+}
+.MenuByMGButton:hover{
+  outline: none;
+  color: black;
+  background-color:#dfdede;
+  transition:0.09s;
+}
+.logoMenu{
+  z-index: 1;
+  position:absolute;
+  width: 28px;
+  margin-left: 45px;
+}
+.logoMenu[type="faer"]{
+  margin-top: 17px;
+}
+
+.MenuByMGButton[type="cource"] {
+  padding-right: 90px;
+  margin-top: 55px;
+}
+.logoMenu[type="LogoHair"]{
+  margin-top: 63px;
+}
+
+.MenuByMGButton[type="home-work"] {
+  padding-left: 42px;
+  margin-top: 100px;
+}
+.logoMenu[type="LogoBooks"]{
+  margin-top: 110px;
+}
+
+.MenuByMGButton[type="teachers"] {
+  padding-right: 0px;
+  margin-top: 145px;
+}
+.logoMenu[type="LogoTeachers"]{
+  margin-top: 154px;
+}
+
+.MenuByMGButton[type="progress"] {
+  padding-right: 30px;
+  margin-top: 190px;
+}
+.logoMenu[type="LogoProgress"]{
+  margin-top: 198px;
+}
+
+.MenuByMGButton[type="chat"]{
+  padding-right: 40px;
+  margin-top: 235px;
+}
+.logoMenu[type="LogoChat"]{
+  margin-top: 243px;
+}
+
+.MenuByMGButton[type="my-mg"]{
+  margin-top: 292px;
+}
+.my_mgStatus{
+  padding-left: 235px;
+  margin-right: -90px;
+  margin-top: 345px;
+  font-size: 12px;
+  font-family: 'Nobile', sans-serif;
+  font-weight:lighter;
+  color: #8c8c8c
+}
+
+.MenuByMGButton[type="my-courses"]{
+  padding-right: 85px;
+  margin-top: 380px;
+}
+.my_CourceStatus{
+  padding-left: 235px;
+  margin-right: -35px;
+  margin-top: 75px;
+  font-size: 12px;
+  font-family: 'Nobile', sans-serif;
+  font-weight:lighter;
+  color: #8c8c8c
+}
+
+.MenuByMGButton[type="line"]{
+  border: none;
+  background-color:#d8dce1;
+  height:0.9px;
+  margin-left: 365px;
+  width:190px;
+  margin-top: 240px;
+}
