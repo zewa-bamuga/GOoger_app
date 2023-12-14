@@ -1,0 +1,35 @@
+insert into role values (1, 'user', null), (2, 'admin', null);
+
+select * from alembic_version;
+select * from role;
+select * from public.user;
+
+DELETE FROM alembic_version;
+DELETE FROM public.role;
+DELETE FROM public.user;
+
+DROP TABLE question CASCADE;
+
+
+
+CREATE SEQUENCE test_id_seq START 1;
+DROP SEQUENCE test_id_seq;insert into role values (1, 'user', null), (2, 'admin', null);
+
+DROP TABLE question CASCADE;
+
+
+
+CREATE SEQUENCE test_id_seq START 1;
+DROP SEQUENCE test_id_seq;
+
+ALTER TABLE question
+ADD COLUMN id INTEGER;
+x
+ALTER TABLE question
+ALTER COLUMN id SET DATA TYPE INTEGER;
+
+ALTER TABLE question
+ADD COLUMN id INTEGER;
+x
+ALTER TABLE question
+ALTER COLUMN id SET DATA TYPE INTEGER;
