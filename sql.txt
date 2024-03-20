@@ -33,3 +33,43 @@ ADD COLUMN id INTEGER;
 x
 ALTER TABLE question
 ALTER COLUMN id SET DATA TYPE INTEGER;
+
+
+Код для Докера бд для разработки
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container_2
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5433:5432"
+
+
+Код для Докера для сборки всего
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container_2
+    command: -p 5433
+    expose:
+      - 5433
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+
+  fastapi:
+    build:
+      context: .
+    env_file:
+      - .env-non-dev
+    container_name: my_fastapi_container
+    ports:
+      - "8000:8000"
+    command: ["/fastapi_app/docker/app.sh"]
+    depends_on:
+      - postgres

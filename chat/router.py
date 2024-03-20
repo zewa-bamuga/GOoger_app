@@ -13,7 +13,6 @@ router = APIRouter(
     tags=["Chat"]
 )
 
-
 class ConnectionManager:
     def __init__(self):
         self.active_connections: List[WebSocket] = []
@@ -33,15 +32,19 @@ class ConnectionManager:
             await self.add_messages_to_database(message)
         for connection in self.active_connections:
             await connection.send_text(message)
+    async def broadcast(self, message: str, add_to_db: bool):
+        if add_to_db:
+            await self.add_messages_to_database(message)
+        for connection in self.active_connections:
+            await connection.send_text(message)
 
     @staticmethod
     async def add_messages_to_database(message: str):
         async with async_session_maker() as session:
-            stmt = insert(Messages).values(
-                message=message
-            )
+            stmt = insert(Messages).values(message=message)
             await session.execute(stmt)
             await session.commit()
+
 
 manager = ConnectionManager()
 
@@ -53,7 +56,6 @@ async def get_last_messages(
     messages = await session.execute(query)
     return messages.scalars().all()
 
-
 @router.websocket("/ws/{client_id}")
 async def websocket_endpoint(websocket: WebSocket, client_id: int):
     await manager.connect(websocket)
@@ -64,3 +66,4 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
     except WebSocketDisconnect:
         manager.disconnect(websocket)
         await manager.broadcast(f"Client #{client_id} left the chat", add_to_db=False)
+        # await manager.broadcast(f"Client #{client_id} says: {data}", add_to_db=True)

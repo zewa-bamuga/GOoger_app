@@ -1,5 +1,5 @@
 from typing import Optional
-
+from pydantic import BaseModel
 from fastapi_users import schemas
 
 class UserCreate(schemas.BaseUserCreate):
@@ -22,3 +22,8 @@ class UserRead(schemas.BaseUser[int]):
 
     class Config:
         from_attributes = True
+
+class CourseCreate(BaseModel):
+    __tablename__ = "course"
+    name: str
+    level: str

@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5433:5432"
+
+#  fastapi:
+#    build:
+#      context: .
+#    env_file:
+#      - .env-non-dev
+#    container_name: my_fastapi_container
+#    ports:
+#      - "8000:8000"
+#    command: ["/fastapi_app/docker/app.sh"]
+#    depends_on:
+#      - postgres

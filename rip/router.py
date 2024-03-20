@@ -1,11 +1,14 @@
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy import select
+from sqlalchemy import insert
 from sqlalchemy.ext.asyncio import AsyncSession
+from starlette import status
 
+from auth.schemas import CourseCreate
 from database import get_async_session
 
 from auth.base_config import fastapi_users
-from auth.models import User
+from auth.models import User, course
+from sqlalchemy import select
 
 router = APIRouter(
     prefix="/rip",
@@ -53,3 +56,47 @@ async def get_all_users(session: AsyncSession = Depends(get_async_session)):
 @router.get("/get_current_user")
 async def get_current_user(user: User = Depends(current_user)):
     return {"user_id": user.id}
+
+@router.get("/get_username")
+async def get_username(user: User = Depends(current_user)):
+    return {"user_name": user.username}
+
+@router.post("/add_course")
+async def add_course(new_course: CourseCreate, session: AsyncSession = Depends(get_async_session), user: User = Depends(current_user)):
+    if user.role_id != 2:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="У вас id не 2")
+
+    else:
+        stmt = insert(course).values(**new_course.dict())
+        await session.execute(stmt)
+        await session.commit()
+        return new_course
+
+@router.delete("/delete_course/{course_id}")
+async def delete_course(course_id: int, user: User = Depends(current_user), session: AsyncSession = Depends(get_async_session)):
+    if user.role_id == 2:
+        existing_course = await session.execute(select(course).where(course.c.id == course_id))
+        current_course = existing_course.scalar()
+
+        if not current_course:
+            raise HTTPException(status_code=404, detail="Doctor not found")
+
+    stmt = course.delete().where(course.c.id == course_id)
+    await session.execute(stmt)
+    await session.commit()
+
+    return {"status": "success"}
+
+@router.get("/get_courses")
+async def get_courses_api(session: AsyncSession = Depends(get_async_session)):
+    statement = select(course)
+    result = await session.execute(statement)
+    courses = result.fetchall()
+
+    if not courses:
+        raise HTTPException(status_code=404, detail="No courses found")
+
+    # Преобразование в список словарей с использованием _asdict()
+    courses_list = [dict(course._asdict()) for course in courses]
+
+    return courses_list

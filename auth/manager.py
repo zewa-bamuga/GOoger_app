@@ -1,3 +1,5 @@
+import smtplib
+from email.message import EmailMessage
 from typing import Optional
 
 from fastapi import Depends, Request
@@ -14,6 +16,24 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
 
     async def on_after_register(self, user: User, request: Optional[Request] = None):
         print(f"Пользователь {user.id} уже зарегистрирован.")
+
+    async def send_verification_token(self, user: User, request: Optional[Request] = None):
+        email_address = "tikhonov.igor2028@yandex.ru"
+        email_password = "abqiulywjvibrefg"
+
+        msg = EmailMessage()
+        msg['Subject'] = "Email subject"
+        msg['From'] = email_address
+        msg['To'] = "tikhonov.igor2028@yandex.ru"
+        msg.set_content(
+            f"""\
+        Вы зарегистрировались на платформе GOoger. Приятного пользования!\n(Ещё не знаю, как тут оформить сообщение.
+        Возможно, добавлю переход по ссылке для подтверждения)""",
+        )
+
+        with smtplib.SMTP_SSL('smtp.yandex.ru', 465) as smtp:
+            smtp.login(email_address, email_password)
+            smtp.send_message(msg)
 
     async def create(
         self,
@@ -39,6 +59,7 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
         created_user = await self.user_db.create(user_dict)
 
         await self.on_after_register(created_user, request)
+        await self.send_verification_token(created_user, request)
 
         return created_user
 

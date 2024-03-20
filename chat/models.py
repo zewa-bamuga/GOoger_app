@@ -8,3 +8,9 @@ class Messages(Base):
 
     id = Column(Integer, primary_key=True)
     message = Column(String)
+
+class Courses(Base):
+    __tablename__="course"
+    id=Column(Integer, primary_key=True)
+    name=Column(Integer, nullable=False)
+    level=Column(String)
