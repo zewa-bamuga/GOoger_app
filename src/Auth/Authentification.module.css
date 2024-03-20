@@ -1,45 +1,45 @@
 .registrationContainer {
-    display: flex;
-    margin-top: -100px;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  position:absolute;
+  background-color: #fff;
+  width: 400px;
+  height: 500px;
+  border-radius: 10px;
+  left: 0;
+  right: 0;
+  top: -50px;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+}
   
-  .centeredContent {
-    text-align: center;
-  }
+.registrationTitle {
+  font-size: 26px;
+  font-family: 'Fira Sans', sans-serif;
+  color: #333;
+}
   
-  .registrationTitle {
-    font-size: 36px;
-    font-family: 'Fira Sans', sans-serif;
-    margin-left: 20px;
-    padding-bottom: 50px;
-    color: #333;
-  }
+.registrationForm {
+  margin-top: 30px;
+  text-align: left;
+}
   
-  .registrationForm {
-    text-align: left;
-  }
-  
-  .labelText {
+.labelText {
     font-size: 16px;
-    padding-left: 33px;
     font-family: 'Montserrat', sans-serif;
     color: #555;
-    margin-bottom: 5px;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
   }
   
   .inputField {
     outline: 0;
-    margin-top: 10px;
-    width: 340px;
+    width: 300px;
     padding: 10px 30px;
-    border-radius: 3px/3px;
+    border-radius: 10px;
     border: 1px solid #d1d1d1;
     padding-left: 15px;
     font-size: 18px;
-    margin-bottom: 10px;
   }
   .inputField:hover {
     transition: border 0.3s;
@@ -50,6 +50,9 @@
     transition: border 0.3s;
     border: 1px solid #81a1b0;
   }
+  .inputField[type="text"]{
+    margin-top: 30px;
+  }
   
   /* Стили для поля ввода пароля */
   .inputField[type="password"] {
@@ -57,10 +60,9 @@
     border-color: #a7bac4;
     outline: none;
     margin-top: 10px;
-    width: 340px;
-    border-radius: 3px/3px;
+    width: 300px;
+    border-radius: 10px;
     border: 1px solid #d1d1d1;
-    /* padding-left: 15px; */
     font-size: 18px;
   }
   .inputField[type="password"]:hover {
@@ -75,18 +77,19 @@
   
   .submitButton {
     background-color: #81a1b1;
+    /* position: absolute; */
     color: #fff;
     /* padding: 10px 30px; */
     height: 56px;
     width: 350px;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     font-family: 'Fira Sans', sans-serif;
     font-size: 20px;
     cursor: pointer;
     outline: none;
-    margin-top: 50px;
-    margin-left: 20px;
+    margin-top: 40px;
+    /* margin-left: 20px; */
   }
   
   .submitButton:hover {
@@ -118,15 +121,77 @@
   }
 
   .labelText[type="acc"] {
+    margin-top: 20px;
     color: #555;
   }
   .linkText {
+    margin-left: 5px;
     color: #2d6987;
     cursor: pointer;
   }
+  .linkText[type="newPas"] {
+    position:absolute;
+    margin-left: 200px;
+    margin-top: 195px;
+  }
+  
+  .errorContainer {
+    position: absolute;
+    right: 10px;
+    top: 0;
+  }
+  
+  .errorMessage {
+    color: red;
+    font-size: 14px;
+  }
   
   
-  /* .checkBoxes[type="checkbox"]{
-    display:none;
-  } */
+  .agreementText {
+    font-size: 14px;
+  }
+  .agreementText[type="last_agree"]{
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+  }
   
+  .link {
+    margin-left: 4px;
+    text-decoration: none;
+    color: #386fdb;
+  }
+
+  .hrLine {
+    width: 350px;
+    border-top: 0px solid #eeedf0;
+    margin-top: 20px;
+  }
+
+  .passwordVisibilityButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    right: 37px;
+    top: 163px;
+    width: 20px;
+    height: auto;
+  }
+
+  .passwordVisibilityIcon{
+    width: 20px;
+    height: auto;
+  }
+  .passwordField {
+    background-color: #c9e1ed;
+    border-color: #a7bac4;
+    outline: none;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid #d1d1d1;
+    font-size: 18px;
+    margin-top: 100px;
+  }

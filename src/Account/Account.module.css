@@ -1,0 +1,50 @@
+.IdLabel{
+
+}
+
+.IdTitle{
+    margin-left: 30px;
+    margin-top:30px;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size:25px;
+}
+.InputStyle{
+    height: 10px;
+    width: 100px;
+    margin-left:50px;
+}
+.buttonDeleteStyle{
+    margin-left:10px;
+    width: 165px;
+}
+.buttonGetStyle{
+    margin-left:50px;
+    height: 35px;
+    width: 115px;
+}
+.getIdStyle{
+    margin-left:175px;
+    margin-top: -25px;
+}
+.infoStyle{
+    margin-left:350px;
+    margin-top: -20px;
+}
+.nameStyle{
+    margin-left:50px;
+    margin-top: 10px;
+}
+
+.buttonStyle {
+    color: white;
+    background-color: red;
+    border: 2px;
+    border-radius: 4px;
+    height: 30px;
+    width: 70px;
+    position: absolute;
+    margin-top:50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

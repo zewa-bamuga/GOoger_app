@@ -1,0 +1,55 @@
+.rectangle {
+  position: absolute;
+  top: 100px;
+  left: 100%; /* Начальное положение справа за пределами экрана */
+  width: 400px;
+  height: 60px;
+  background-color: #323039;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  animation: slideInAndOut 4s forwards; /* Анимация выезжания и ухода */
+}
+
+@keyframes slideInAndOut {
+  0% {
+    left: 100%; /* Начальное положение справа за пределами экрана */
+  }
+  20% {
+    left: calc(100% - 440px); /* Позиция справа, когда плашка появляется */
+  }
+  80% {
+    left: calc(100% - 440px); /* Позиция справа, когда плашка остается видимой */
+  }
+  100% {
+    left: 100%; /* Возвращаем плашку обратно за пределы экрана */
+  }
+}
+
+.rectangle img {
+  width: 20px;
+  height: auto;
+  margin-right: 15px;
+  margin-left: 10px;
+}
+
+.rectangle p {
+  margin: 0;
+}
+
+.rectangle p:last-child {
+  margin-top: 5px;
+}
+
+.text {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text[type="second"] {
+  color: #d7d6d8;
+  font-size: 16px;
+}

@@ -1,0 +1,482 @@
+.LCForm {
+  position: relative;
+  margin-top: 30px;
+  margin-left: 500px;
+  height: 680px;
+  width: 800px;
+  border-radius: 7px/7px;
+  background-color: #ffffff;
+  box-shadow: 1px 3px 5px #c8c8c8;
+  overflow: visible; /* Добавлено свойство overflow */
+}
+.LCTitle{
+  margin-left: 30px;
+  margin-right: auto;
+  margin-top:30px;
+  color: black;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Open Sans', sans-serif;
+  font-size:25px;
+}
+.LCTitle[data-type="by_mg_title"] {
+  margin-right: 476px;
+}
+.ScrollableForm {
+  overflow-y: auto;
+  max-height: 90vh; /* или другое значение, если необходимо */
+}
+.LCButton{
+  /* position:absolute; */
+  margin-right: 750px;
+  margin-top: -55px;
+  padding:5px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ByMGButton{
+  position:absolute;
+  outline:none;
+  margin-top:15px;
+  margin-left:415px;
+  height:45px;
+  width:210px;
+  background-color:#ffffff;
+  border: 2px solid #7195a7;
+  border-radius:4px/4px;
+  color:#7ca9bf;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+  cursor:pointer;
+}
+.ByMGButton:hover{
+  color:#ffffff;
+  background-color:#7195a7;
+  transition:0.2s;
+  outline: none;
+}
+
+.ByCourceButton{
+  position:absolute;
+  outline:none;
+  margin-top:15px;
+  margin-left:630px;
+  height:45px;
+  width:120px;
+  background-color:#81a1b1;
+  border: 2px solid #81a1b1;
+  border-radius:4px/4px;
+  color:#ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+  cursor:pointer;
+}
+.ByCourceButton:hover{
+  color:#ffffff;
+  background-color:#7195a7;
+  transition:0.2s;
+  outline: none;
+}
+
+.Menu{
+  z-index: 1;
+  /* position:absolute; */
+  margin-left: -0px;
+  margin-top: -595px;
+}
+.MenuButton{
+  margin-top: -45px;
+}
+
+.MenuByMGButton{
+  padding-right: 5px;
+  cursor:pointer;
+  border:none;
+  position: absolute;
+  margin-left: 40px;
+  height:44px;
+  width:240px;
+  border-radius:4px/4px;
+  color: rgb(85, 85, 85);
+  background-color: #f1f1f1;
+  font-family: 'Open Sans', sans-serif;
+  font-weight:bold;
+  color:none;
+  font-size:17px;
+}
+.MenuByMGButton:hover{
+  outline: none;
+  color: black;
+  background-color:#dfdede;
+  transition:0.09s;
+}
+.logoMenu{
+  z-index: 1;
+  position:absolute;
+  width: 28px;
+  margin-left: 45px;
+}
+.logoMenu[type="faer"]{
+  margin-top: 17px;
+}
+
+.MenuByMGButton[type="cource"] {
+  padding-right: 90px;
+  margin-top: 55px;
+}
+.logoMenu[type="LogoHair"]{
+  margin-top: 63px;
+}
+
+.MenuByMGButton[type="home-work"] {
+  padding-left: 42px;
+  margin-top: 100px;
+}
+.logoMenu[type="LogoBooks"]{
+  margin-top: 110px;
+}
+
+.MenuByMGButton[type="teachers"] {
+  padding-right: 0px;
+  margin-top: 145px;
+}
+.logoMenu[type="LogoTeachers"]{
+  margin-top: 154px;
+}
+
+.MenuByMGButton[type="progress"] {
+  padding-right: 30px;
+  margin-top: 190px;
+}
+.logoMenu[type="LogoProgress"]{
+  margin-top: 198px;
+}
+
+.MenuByMGButton[type="chat"]{
+  padding-right: 40px;
+  margin-top: 235px;
+}
+.logoMenu[type="LogoChat"]{
+  margin-top: 243px;
+}
+
+.MenuByMGButton[type="my-mg"]{
+  margin-top: 292px;
+}
+.my_mgStatus{
+  padding-left: 235px;
+  margin-right: -90px;
+  margin-top: 345px;
+  font-size: 12px;
+  font-family: 'Nobile', sans-serif;
+  font-weight:lighter;
+  color: #8c8c8c
+}
+
+.MenuByMGButton[type="my-courses"]{
+  padding-right: 85px;
+  margin-top: 380px;
+}
+.my_CourceStatus{
+  padding-left: 235px;
+  margin-right: -35px;
+  margin-top: 75px;
+  font-size: 12px;
+  font-family: 'Nobile', sans-serif;
+  font-weight:lighter;
+  color: #8c8c8c
+}
+
+.MenuByMGButton[type="line"]{
+  border: none;
+  background-color:#d8dce1;
+  height:0.9px;
+  margin-left: 365px;
+  width:190px;
+  margin-top: 240px;
+}
+
+.MenuByMGButton.activeButton {
+  color: black;
+  background-color: #dfdede;
+}
+
+.ByCourceButton.activeButton {
+  color: black;
+  background-color: #dfdede;
+}
+
+.LCTitleContainer {
+  position: relative;
+}
+
+
+/* Стили для страницы "Мастер-группы */
+.TooltipContainer {
+  position: absolute; /* Изменено на absolute */
+  top: 40px;
+  left: 41%;
+  /* transform: translateX(-50%); */
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.TooltipElement {
+  width: 20px;
+  height: 20px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.TooltipInfo {
+  position: absolute;
+  transform: translateX(-50%);
+  top: 100%;
+  left: 50%;
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 1.5;
+  width: 460px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 1;
+}
+
+.TooltipContainer:hover .TooltipInfo {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.1s;
+}
+
+.TooltipInfo p {
+  margin: 0;
+}
+
+
+/* Стиль для страницы "Курсы" */
+.LCTitle[data-type="by_cource_title"] {
+  margin-right: 602px;
+}
+.Promocode{
+  position:absolute;
+  outline:none;
+  margin-top:-35px;
+  margin-left:620px;
+  height:45px;
+  width:150px;
+  background-color:#ffffff;
+  border: 2px solid #7195a7;
+  border-radius:4px/4px;
+  color:#7ca9bf;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+  cursor:pointer;
+}
+.Promocode:hover{
+  color:#ffffff;
+  background-color:#7195a7;
+  transition:0.2s;
+  outline: none;
+}
+
+/* Стиль для страницы "Домашние задания" */
+.LCTitle[data-type="home_work_title"] {
+  margin-right: 509px;
+}
+.select_home_work {
+  margin-left: -590px;
+  margin-top: 30px;
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 100px;
+}
+.select_home_work select {
+  padding: 0.4rem 0.1rem;
+  border: 1px;
+  border-color: #d5d5d5;
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  font-size: 1rem;
+  border-radius: 50px/50;
+}
+.select_home_work[data-type="select_home_work2"]{
+  margin-top: -40px;
+  left: 170px;
+}
+.select_home_work[data-type="select_home_work3"]{
+  margin-top: -40px;
+  left: 360px;
+}
+.select_home_work[data-type="select_home_work4"]{
+  margin-top: -40px;
+  left: 580px;
+}
+
+/* Стиль для страницы "Преподаватели" */
+.LCTitle[data-type="teachers_title"] {
+  margin-right: 560px;
+}
+.select_teachers{
+  margin-left: -640px;
+  margin-top: 30px;
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 100px;
+}
+.select_teachers select {
+  padding: 0.4rem 0.1rem;
+  border: 1px;
+  border-color: #d5d5d5;
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  font-size: 1rem;
+  border-radius: 50px/50;
+}
+.select_teachers[data-type="select_teachers1"]{
+  margin-top: -41px;
+  left: 170px;
+}
+
+/* Стиль для страницы "Достижения" */
+.LCTitle[data-type="progress_title"] {
+  margin-right: 544px;
+}
+
+/* Стиль для страницы "Мои мастер-группы" */
+.LCTitle[data-type="my-master-group_title"] {
+  margin-right: 506px;
+}
+
+/* Стиль для страницы "Мои курсы" */
+.LCTitle[data-type="my-courses_title"] {
+  margin-right: 626px;
+}
+
+.courseList {
+  list-style: none;
+  padding: 0;
+}
+.courseListItem {
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  color: black;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  width: 720px;
+  height: 70px;
+  margin-left: 30px;
+  line-height: 2;
+}
+.courseListItem:first-child {
+  margin-top: 50px;
+}
+.courseButton {
+  position:absolute;
+  outline:none;
+  margin-left:605px;
+  margin-bottom: 10px;
+  height:45px;
+  width:100px;
+  background-color:#81a1b1;
+  border: 2px solid #81a1b1;
+  border-radius:4px/4px;
+  color:#ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+  cursor:pointer;
+}
+.courseButton:hover{
+  color:#ffffff;
+  background-color:#7195a7;
+  transition:0.2s;
+  outline: none;
+}
+
+/* стили чата */
+
+.LCTitle[data-type="chat_id"] {
+  position:absolute;
+  margin-left: 100px;
+}
+.LCForm[data-type="lc_chat"]{
+  height: 630px;
+  border-radius: 7px 7px 0 0;
+  box-shadow: 1px 3px 5px #c8c8c8;
+
+}
+
+.FormInputField{
+  z-index: 1;
+  position:absolute;
+  position: fixed;
+  margin-top: 630px;
+  border-radius: 0 0 7px 7px;
+  background-color: #f7f7f7;
+  box-shadow: 1px 3px 5px #c8c8c8;
+  height: 50px;
+  width: 800px;
+}
+.inputField{
+  width: 620px;
+  height: 20px;
+  margin-right: 130px;
+  margin-top: 8px;
+  box-shadow: none;
+  border: 1px solid #81a1b1;
+  border-radius: 7px/7px;
+  background-color: #f7f7f7;
+}
+.inputButton{
+  margin-right: -650px;
+  margin-top: -34px;
+  width: 90px;
+  height: 35px;
+  outline:none;
+  background-color:#81a1b1;
+  border: 2px solid #81a1b1;
+  border-radius:4px/4px;
+  color:#ffffff;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+  cursor:pointer;
+}
+.inputButton:hover{
+  color:#ffffff;
+  background-color:#7195a7;
+  transition:0.2s;
+  outline: none;
+}
+.chatList[data-type="chat_list"] {
+  position:absolute;
+  margin-top: 100px;
+  margin-left: 100px;
+  list-style: none;
+  padding: 0;
+}
+
+.ScrollChat {
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.ChatContainer {
+  max-height: 100px;
+  overflow-y: auto;
+}

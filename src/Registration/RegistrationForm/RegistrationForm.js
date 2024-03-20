@@ -7,33 +7,32 @@ export default function RegistrationForm() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [agreeAfera, setAgreeAfera] = useState(false);
-  // const [agreeProcessing, setAgreeProcessing] = useState(false);
-  // const [agreeAds, setAgreeAds] = useState(false);
+  const [agreeAfera, setAgreeAfera] = useState(false);
+  const [agreeProcessing, setAgreeProcessing] = useState(false);
+  const [agreeAds, setAgreeAds] = useState(false);
+  const [checkboxesValid, setCheckboxesValid] = useState(true);
+
   const navigate = useNavigate();
 
   const handleInputChange = (event, setterFunction) => {
     setterFunction(event.target.value);
   };
 
-  // const handleCheckboxChange = (setterFunction) => {
-  //   setterFunction((prevValue) => !prevValue);
-  // };
-
-  // const goToHome = () => {
-  //   navigate('/master-group');
-  // };
+  const handleCheckboxChange = (setterFunction) => {
+    setterFunction((prevValue) => !prevValue);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      // if (!agreeAfera || !agreeProcessing) {
-      //   console.error('Please agree to all terms and conditions.');
-      //   return;
-      // }
+      if (!agreeAfera || !agreeProcessing || !agreeAds) {
+        setCheckboxesValid(false);
+        console.error('Please agree to all terms and conditions.');
+        return;
+      }
 
-      const response = await axios.post('http://127.0.0.1:8000/auth/register', {
+      const response = await axios.post('http://localhost:8000/auth/register', {
         email,
         password,
         username,
@@ -55,81 +54,93 @@ export default function RegistrationForm() {
     setEmail('');
     setPassword('');
     navigate('/auth');
-    // setAgreeAfera(false);
-    // setAgreeProcessing(false);
-    // setAgreeAds(false);
+    setAgreeAfera(false);
+    setAgreeProcessing(false);
+    setAgreeAds(false);
+    setCheckboxesValid(true);
   };
 
   return (
     <div className={styles.registrationContainer}>
-      <div className={styles.centeredContent}>
-        <h1 className={styles.registrationTitle}>Регистрация</h1>
         <form className={styles.registrationForm} onSubmit={handleSubmit}>
-          <label className={styles.labelText}>
-            Имя пользователя
+          <h1 className={styles.registrationTitle}>Регистрация в GOoger</h1>
             <input
               type="text"
               value={username}
               onChange={(e) => handleInputChange(e, setUsername)}
+              placeholder="Имя пользователя"
               className={styles.inputField}
             />
-          </label>
           <br />
-          <label className={styles.labelText}>
-            Адрес электронной почты
             <input
               type="email"
               value={email}
               onChange={(e) => handleInputChange(e, setEmail)}
+              placeholder="Почта"
               className={styles.inputField}
             />
-          </label>
           <br />
-          <label className={styles.labelText}>
-            Пароль
             <input
               type="password"
               value={password}
               onChange={(e) => handleInputChange(e, setPassword)}
+              placeholder="Пароль"
               className={styles.inputField}
             />
-          </label>
           <br />
-          {/* <label className={styles.labelText}>
+          
+          <label className={`${styles.labelText} ${!checkboxesValid ? styles.error : ''}`} type="checkboxes1">
             <input
               type="checkbox"
               checked={agreeAfera}
               onChange={() => handleCheckboxChange(setAgreeAfera)}
               className={styles.checkBoxes}
             />
-            Согласен с публичной аферой
+            <span className={styles.agreementText}>
+              Согласен с
+              <a href="https://disk.yandex.ru/i/w9SBr8X7PzHhUw" target="_blank" className={styles.link}>
+                публичной афертой
+              </a>
+            </span>
           </label>
           <br />
-          <label className={styles.labelText}>
-            <input
-              type="checkbox"
-              checked={agreeProcessing}
-              onChange={() => handleCheckboxChange(setAgreeProcessing)}
-            />
-            Согласен на обработку персональных данных и с политикой обработки персональных данных
-          </label>
-          <br />
-          <label className={styles.labelText}>
+
+          <label className={`${styles.labelText} ${!checkboxesValid ? styles.error : ''}`} type="checkboxes2">
             <input
               type="checkbox"
               checked={agreeAds}
               onChange={() => handleCheckboxChange(setAgreeAds)}
+              className={styles.checkBoxes}
             />
-            Согласен на получение рекламных информационных и иных сообщений.
-          </label> */}
-          <label className={styles.labelText} type="acc">
-            Есть аккаунт? <span onClick={() => navigate('/auth')} className={styles.linkText}>Войти</span>
+            <span className={styles.agreementText}>
+              Согласен на  
+              <a href="https://disk.yandex.ru/i/w9SBr8X7PzHhUw" target="_blank" className={styles.link}>
+                получение рекламных, информационных и иных рассылок
+              </a>
+            </span>
           </label>
+
           <button onClick={handleSubmit} type="submit" className={styles.submitButton}>
             Зарегистрироваться
           </button>
+
+          <span className={styles.agreementText} type="last_agree">
+            При входе вы принимаете условия
+            <a href="https://disk.yandex.ru/i/w9SBr8X7PzHhUw" target="_blank" className={styles.link}>
+              публичной оферты
+            </a>
+            <span className={styles.andSpacer}> и</span>
+            <a href="https://disk.yandex.ru/i/w9SBr8X7PzHhUw" target="_blank" className={styles.link}>
+              политики обработки персональных данных
+            </a>
+          </span>
+
+          <hr className={styles.hrLine} />
+
+          <label className={styles.labelText} type="acc">
+            Есть аккаунт? <span onClick={() => navigate('/auth')} className={styles.linkText}>Войти</span>
+          </label>
         </form>
-      </div>
     </div>
   );
 }
